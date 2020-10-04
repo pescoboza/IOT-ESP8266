@@ -8,8 +8,6 @@
 unsigned long lastTime{0U};
 
 void setup(){
-    pinMode(LED_BUILTIN, OUTPUT);
-    
     Serial.begin(cfg::BAUD_RATE);
     delay(cfg::INITIAL_DELAY_MS);
     WiFi.begin(cfg::SSID, cfg::PASSWORD);
@@ -67,7 +65,8 @@ void loop(){
             http.end();
         }
         else{
-            Serial.println("WiFi Disconnected");
+            Serial.println("WiFi Disconnected, rebooting...");
+            ESP.restart();
         }
         lastTime = millis();
     }
