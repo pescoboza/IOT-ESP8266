@@ -46,6 +46,7 @@ void loop(){
             char buff[BUFF_SIZE];
             const char *baseJsonStr{"{\"api_key\": \"%s\", \"sensor_id\": %i, \"value1\": %f}"};
             sprintf(buff, baseJsonStr, cfg::API_KEY, cfg::SENSOR_ID, 25.666f);
+            Serial.println(buff);
 
             // Send HTTP POST request
             int httpResponseCode{http.POST(buff)};
