@@ -34,7 +34,7 @@ void setup(){
 void loop(){
     if ((millis() - lastTime) > cfg::TIME_DELAY_MS){
 
-        if (WiFi.status() == WL_CONNECTION_LOST){
+        if (WiFi.status() != WL_CONNECTION_LOST){
             HTTPClient http;
 
             http.begin(cfg::SERVER_NAME);
